@@ -10,11 +10,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        return ZStack(content: {
-            RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-            RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-            Text("👽")
+        HStack(spacing: 10, content: {
+            ForEach(0..<4, content: {_ in
+                ZStack(content: {
+                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
+                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
+                Text("👽")
+                })
             })
+        })
             .foregroundColor(.orange)
             .padding()
             .font(Font.largeTitle)
