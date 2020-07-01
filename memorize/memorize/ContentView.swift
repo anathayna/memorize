@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack() {
+        HStack {
             ForEach(0..<4) { index in
                 CardView()
             }
@@ -22,11 +22,16 @@ struct ContentView: View {
 }
 
 struct CardView: View {
+    var isFaceUP: Bool = true
     var body: some View {
-        ZStack() {
-            RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
-            RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
-            Text("👽")
+        ZStack {
+            if isFaceUP {
+                RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
+                RoundedRectangle(cornerRadius: 10.0).stroke(lineWidth: 3)
+                Text("👽")
+            } else {
+                RoundedRectangle(cornerRadius: 10.0).fill()
+            }
         }
     }
 }
