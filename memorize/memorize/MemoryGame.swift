@@ -17,6 +17,16 @@ struct MemoryGame<CardContent> {
         var content: CardContent
     }
     
+    init(numberOfPairsOfCards: Int, cardContentfactory: (Int) -> CardContent) {
+        cards = Array<Card>()
+        
+        for pairIndex in 0...numberOfPairsOfCards {
+            let content = cardContentfactory(pairIndex)
+            cards.append(Card(isFaceUp: false, isMached: false, content: content))
+            cards.append(Card(isFaceUp: false, isMached: false, content: content))
+        }
+    }
+    
     func choose(card: Card) {
         print("card choose: \(card)")
     }
