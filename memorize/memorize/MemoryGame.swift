@@ -11,10 +11,8 @@ import Foundation
 struct MemoryGame<CardContent> {
     var cards: Array<Card>
     
-    struct Card {
-        var isFaceUp: Bool
-        var isMached: Bool
-        var content: CardContent
+    func choose(card: Card) {
+        print("card choose: \(card)")
     }
     
     init(numberOfPairsOfCards: Int, cardContentfactory: (Int) -> CardContent) {
@@ -22,13 +20,16 @@ struct MemoryGame<CardContent> {
         
         for pairIndex in 0...numberOfPairsOfCards {
             let content = cardContentfactory(pairIndex)
-            cards.append(Card(isFaceUp: false, isMached: false, content: content))
-            cards.append(Card(isFaceUp: false, isMached: false, content: content))
+            cards.append(Card(content: content, id: pairIndex*2))
+            cards.append(Card(content: content, id: pairIndex*2+1))
         }
     }
     
-    func choose(card: Card) {
-        print("card choose: \(card)")
+    struct Card : Identifiable {
+        var isFaceUp: Bool = true
+        var isMached: Bool = false
+        var content: CardContent
+        var id: Int
     }
     
 }
