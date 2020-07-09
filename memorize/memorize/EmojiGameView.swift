@@ -10,6 +10,7 @@ import SwiftUI
 
 struct EmojiGameView: View {
     var viewModel: EmojiMemoryGame
+    
     var body: some View {
         HStack {
             ForEach(viewModel.cards) { card in
@@ -18,9 +19,9 @@ struct EmojiGameView: View {
                 }
             }
         }
-            .foregroundColor(.orange)
-            .padding()
-            .font(Font.largeTitle)
+        .padding()
+        .font(Font.largeTitle)
+        .foregroundColor(.orange)
     }
 }
 
