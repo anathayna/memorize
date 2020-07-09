@@ -1,5 +1,5 @@
 //
-//  EmojiGameView.swift
+//  EmojiMemoryGameView.swift
 //  memorize
 //
 //  Created by Ana Thayna Franca on 29/06/20.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct EmojiMemoryGameView: View {
-    var viewModel: EmojiMemoryGame
+    @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
         HStack {

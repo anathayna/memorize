@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         let game = EmojiMemoryGame()
-        let contentView = EmojiGameView(viewModel: game)
+        let contentView = EmojiMemoryGameView(viewModel: game)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
