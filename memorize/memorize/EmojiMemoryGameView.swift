@@ -20,7 +20,6 @@ struct EmojiMemoryGameView: View {
             }
         }
         .padding()
-        .font(Font.largeTitle)
         .foregroundColor(.orange)
     }
 }
@@ -28,7 +27,7 @@ struct EmojiMemoryGameView: View {
 struct CardView: View {
     var card: MemoryGame<String>.Card
     var body: some View {
-        GeometryReader(content: { geometry in
+        GeometryReader { geometry in
             ZStack {
                 if self.card.isFaceUp {
                     RoundedRectangle(cornerRadius: 10.0).fill(Color.white)
@@ -38,6 +37,9 @@ struct CardView: View {
                     RoundedRectangle(cornerRadius: 10.0).fill()
                 }
             }
-        })
+            .font(Font.system(size: min(geometry.size.width, geometry.size.height) * 0.75))
+        }
     }
+    
+    
 }
