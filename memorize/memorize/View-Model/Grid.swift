@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Grid<Item,ItemView>: View {
+struct Grid<Item,ItemView>: View where Item: Identifiable, ItemView: View {
     var items: [Item]
     var viewForItem: (Item) -> ItemView
     
@@ -18,6 +18,8 @@ struct Grid<Item,ItemView>: View {
     }
     
     var body: some View {
-        Text("Hello, World!")
+        ForEach(items) { item in
+            self.viewForItem(item)
+        }
     }
 }
