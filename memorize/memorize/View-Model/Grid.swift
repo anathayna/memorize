@@ -37,6 +37,11 @@ struct Grid<Item,ItemView>: View where Item: Identifiable, ItemView: View {
     }
     
     func index(of item: Item) -> Int {
+        for index in 0..<self.items.count {
+            if items[index].id == item.id {
+                return index
+            }
+        }
         return 0
     }
 }
