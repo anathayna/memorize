@@ -1,2 +1,2 @@
 # memorize
-card-matching game :iphone:
+card-matching game :black_joker:
