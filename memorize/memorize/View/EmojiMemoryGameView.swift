@@ -32,15 +32,18 @@ struct CardView: View {
         }
     }
     
+    @ViewBuilder
     private func body(for size: CGSize) -> some View {
-        ZStack {
-            Pie(startAngle: Angle.degrees(0-90), endAngle: Angle.degrees(110-90), clockwise: true)
-                .padding(5)
-                .opacity(0.4)
-            Text(card.content)
-                .font(Font.system(size: fontSize(for: size)))
+        if card.isFaceUp || !card.isMached {
+            ZStack {
+                Pie(startAngle: Angle.degrees(0-90), endAngle: Angle.degrees(110-90), clockwise: true)
+                    .padding(5)
+                    .opacity(0.4)
+                Text(card.content)
+                    .font(Font.system(size: fontSize(for: size)))
+            }
+            .cardify(isFaceUp: card.isFaceUp)
         }
-        .modifier(Cardify(isFaceUp: card.isFaceUp))
     }
     
     private func fontSize(for size: CGSize) -> CGFloat {
