@@ -10,7 +10,6 @@ import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable {
     private(set) var cards: Array<Card>
-    var theme: Theme
     var score = 0
     var seenCards = Set<Int>()
     
@@ -48,17 +47,16 @@ struct MemoryGame<CardContent> where CardContent: Equatable {
         }
     }
     
-    init(theme: Theme, cardContentfactory: (Int) -> CardContent) {
+    init(numberOfPairsOfCards: Int, cardContentfactory: (Int) -> CardContent) {
         cards = Array<Card>()
         
-        for pairIndex in 0..<theme.numberOfPairsOfCards {
+        for pairIndex in 0..<numberOfPairsOfCards {
             let content = cardContentfactory(pairIndex)
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2+1))
         }
         
         cards.shuffle()
-        self.theme = theme
     }
     
     struct Card : Identifiable {
